@@ -17,16 +17,12 @@ export default function Home() {
       return;
     }
     const response = await axios.post("/api/shorturl", {
-
       url,
       code
     });
     setShortUrl("https://" + response.data.data.shortUrl + ".in");
   };
 
-  const handleCodeclick =async (url:string) =>{
-    setcode(code)
-  };
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const handlerouting=()=>{
@@ -50,7 +46,7 @@ export default function Home() {
         onChange={(e)=>setUrl(e.target.value)}/>
 
         <button className="bg-blue-500 text-white p-2 rounded-md" onClick={()=>{
-          handleClick(url)
+          handleClick()
         }}>Shorten</button>
 
       </div>
